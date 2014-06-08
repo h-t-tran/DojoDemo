@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Demo of Dojo static markup</title>
+
+	 <link rel="stylesheet" href="./js/dojo/dijit/themes/claro/claro.css">
+	<!-- <link rel="stylesheet" href="./js/dojo/dijit/themes/tundra/tundra.css"> -->
+	
+	<script>dojoConfig = {parseOnLoad: true}</script>
+	<script src='./js/dojo/dojo/dojo.js'></script>
+	
+	<script>
+	
+		dojo.require("dijit.form.TextBox");
+		dojo.require("dijit.form.Button");
+
+		function onClicked()
+		{
+			var txtbox = dijit.byId("txtbox1");
+			var enteredTxt = txtbox.value;
+			
+			var out = dojo.byId("output");
+			out.innerHTML = enteredTxt;
+		}
+	</script>
+	
+</head>
+
+<body class="claro">
+	
+	<div>Enter some text</div>
+	<div data-dojo-type="dijit/form/TextBox" id="txtbox1" value="any text"></div>
+	
+	<button data-dojo-type="dijit/form/Button" id="btn1" 
+						onClick="onClicked()">Click Me</button>
+	<br/><br/>
+	<span>You entered:</span>
+	<span id="output">&nbsp;</span>					
+
+</body>
+</html>

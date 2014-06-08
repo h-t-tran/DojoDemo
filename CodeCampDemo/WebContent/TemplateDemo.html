@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Demo of Dojo template</title>
+
+	 <link rel="stylesheet" href="./js/dojo/dijit/themes/claro/claro.css">
+	<!-- <link rel="stylesheet" href="./js/dojo/dijit/themes/tundra/tundra.css"> -->
+
+	<script>
+		
+	</script>
+	
+	<script src='./js/dojo/dojo/dojo.js'></script>
+	
+	<script>
+		dojoConfig = {parseOnLoad: false}
+	    // path is relative to directory containing dojo.js
+		dojo.registerModulePath('js', '../../../js');
+	    dojo.registerModulePath('demo', '../../../js/demo');
+
+	    var g_anchorIndx = 1;
+	    var widgetArray = [];
+		require(["dojo/ready",
+		         "demo/DemoWidget",
+		         "dijit/form/Button",
+		         "dojo/domReady!"], 
+		  function(ready, _DemoWidget, _Button ) {
+
+		      var btn = new dijit.form.Button({
+			        label: "Add Widget",
+			        onClick: function() {
+			        	 var w = new demo.DemoWidget({
+			        		 myValue: "hello"
+			        	 	}, "anchor" + g_anchorIndx);	
+			        	 
+			        	 widgetArray = widgetArray.concat(w);
+			        	 
+						 g_anchorIndx ++;
+			        }
+			    }, "btn1");
+		   
+		      
+		      var btn2 = new dijit.form.Button({
+			        label: "Change Content",
+			        onClick: function() {
+			        	 dojo.forEach(widgetArray, function(w) {
+			        		 console.debug(w);
+			        	 });
+			        }
+			    }, "btn2");
+		});
+
+	</script>
+	
+</head>
+
+<body class="claro">
+	<span id="btn1"></span><span id="btn2"></span>
+	<br/>
+	<div id="anchor1"></div>
+	<div id="anchor2"></div>
+	<div id="anchor3"></div>
+					
+
+</body>
+</html>

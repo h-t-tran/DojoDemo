@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Demo of Dojo dynamic widget</title>
+
+	 <link rel="stylesheet" href="./js/dojo/dijit/themes/claro/claro.css">
+	<!-- <link rel="stylesheet" href="./js/dojo/dijit/themes/tundra/tundra.css"> -->
+	
+	<!-- 
+			parseOnLoad must be false
+	-->
+	<script>dojoConfig = {parseOnLoad: false}</script>
+	<script src='./js/dojo/dojo/dojo.js'></script>
+	
+	<script>
+	
+		require(["dojo/ready",
+		         "dijit/form/TextBox",
+		         "dijit/form/Button",
+		         "dojo/domReady!"], 
+		  function(ready, _TextBox, _Button ) {
+		      console.debug("dojo is ready");                       
+			
+		      var btn = new _Button({
+			        label: "Click me",
+			        onClick: function() {
+			        	onClicked();
+			        }
+			    }, "btn1");
+		      
+		      var tb = new dijit.form.TextBox({	
+		    	  	value: "any text"
+			    }, "txtbox1");
+		});
+
+	
+		function onClicked()
+		{
+			var txtbox = dijit.byId("txtbox1");
+			var enteredTxt = txtbox.value;
+			
+			var out = dojo.byId("output");
+			out.innerHTML = enteredTxt;
+		}
+	</script>
+	
+</head>
+
+<body class="claro">
+	
+	<div>Enter some text</div>
+	<div id="txtbox1"></div>
+	<div id="btn1"></div>
+	
+	<br/><br/>
+	<span>You entered:</span>
+	<span id="output">&nbsp;</span>					
+
+</body>
+</html>

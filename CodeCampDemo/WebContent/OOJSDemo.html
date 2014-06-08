@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Demo of Dojo static markup</title>
+
+	 <link rel="stylesheet" href="./js/dojo/dijit/themes/claro/claro.css">
+	<!-- <link rel="stylesheet" href="./js/dojo/dijit/themes/tundra/tundra.css"> -->
+	
+	<!-- 
+			parseOnLoad must be false
+	-->
+	<script>dojoConfig = {parseOnLoad: false}</script>
+	<script src='./js/dojo/dojo/dojo.js'></script>
+	
+	<script>
+	
+
+		require(["dojo/ready",
+		         "dijit/form/TextBox",
+		         "dijit/form/Button",
+		         "dojo/domReady!"], 
+		  function(ready, _TextBox, _Button ) {
+		      console.debug("dojo is ready");                       
+			
+		      var btn = new _Button({
+			        label: "Add Widget",
+			        onClick: function() {
+			        	onClicked();
+			        }
+			    }, "btn1");
+		      
+
+		});
+
+	
+		function onClicked()
+		{
+			
+		}
+	</script>
+	
+</head>
+
+<body class="claro">
+
+	<div id="btn1"></div>
+	
+	<br/>
+	<div id="anchor1"></div>
+	<div id="anchor2"></div>
+	<div id="anchor3"></div>
+					
+
+</body>
+</html>

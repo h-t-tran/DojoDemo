@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Demo of Dojo static markup</title>
+
+	 <link rel="stylesheet" href="./js/dojo/dijit/themes/claro/claro.css">
+	<!-- <link rel="stylesheet" href="./js/dojo/dijit/themes/tundra/tundra.css"> -->
+	
+	<script>dojoConfig = {parseOnLoad: true}</script>
+	<script src='./js/dojo/dojo/dojo.js'></script>
+	
+	<script>
+	dojo.ready(function(){
+		require(["dojo/ready",
+		         "dijit/form/Button", 
+		         "dojo/dom", 
+		         "dojo/domReady!"], 
+		  function(ready, Button, dom){
+		                                    
+			// dom.byId() returns the DOM object
+			var txtbox = dom.byId("txtbox1");
+			var btn = dom.byId("btn1");
+			console.debug("dom.byId textbox ", txtbox);
+			console.debug("dom.byId btn ", btn);
+			
+			// dojo.byId() returns the DOM obj
+			var txtbox = dojo.byId("txtbox1");
+			var btn = dojo.byId("btn1");
+			console.debug("dojo.byId textbox ", txtbox);
+			console.debug("dojo.byId btn ", btn);
+			
+			// dijit returns the Javascript object.
+			//console.debug("dojo-data-id txtbox2 =  ", txtbox2);
+			
+			//var txtbox = dijit.byId("txtbox2");
+			/* 
+			// Create a button programmatically:
+		    var myButton = new Button({
+		        label: "Click me!",
+		        id: "mybtn",
+		        onClick: function(){
+		            dom.byId("result1").innerHTML += "Thank you! ";
+		        }
+		    }, "progButtonNode");
+		
+			*/
+		
+		
+		});
+	});
+	
+		function foo()
+		{
+			var txtbox = dijit.byId("mybtn");
+			console.debug("dijit by id ", txtbox)
+			
+		}
+	</script>
+	
+</head>
+
+<body class="claro">
+	<button type="button">Buildin Button</button>
+	<input type="textbox" value="buildin text"></input>
+
+	<div data-dojo-type="dijit/form/TextBox" value="text" id="txtbox1"></div>
+	<div data-dojo-type="dijit/form/TextBox" value="text" data-dojo-id="txtbox2"></div>
+	
+	
+	<button data-dojo-type="dijit/form/Button" type="button" id="btn1" onClick="foo()">Static Button</button>
+
+	<button id="progButtonNode" type="button"></button>
+	<div id="result1"></div>
+	
+	<br/>
+	<input id="myTextBox3" data-dojo-type="dijit.form.TextBox" type="text" value="Default Value"></input>
+	<br><br>
+	<div id="textNode3" style="background-color: lightgray"></div>
+</body>
+</html>
