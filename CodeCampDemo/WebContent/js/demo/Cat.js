@@ -13,6 +13,7 @@ function( _Animal )
 	    	console.debug("Cat ctor().  Name = ", args.name);
 	    },	    
 
+	    // Override the Animal.makeSound()
 	    makeSound: function(sound)
 	    {
 	    	this.inherited(arguments);

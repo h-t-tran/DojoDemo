@@ -8,7 +8,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/codecamp/CodeCampDemo/jars/jackson-all-1.9.11.jar"/>
-	<classpathentry kind="lib" path="C:/codecamp/CodeCampDemo/jars/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/codecamp/DojoDemo/CodeCampDemo/jars/jackson-all-1.9.11.jar"/>
+	<classpathentry kind="lib" path="C:/codecamp/DojoDemo/CodeCampDemo/jars/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

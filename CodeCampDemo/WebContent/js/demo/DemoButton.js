@@ -20,7 +20,7 @@ function( _Button )
 	    
 	    setLabel: function(/*String*/ content)
 	    {
-	    	
+	    	// don't invoke the parent version.
 	    	//this.inherited(arguments);
 	    	
 	    	this.set("label", "<h1>This is large</h1>");
