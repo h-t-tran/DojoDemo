@@ -4,8 +4,12 @@
 <meta charset="ISO-8859-1">
 <title>Demo of Dojo static markup</title>
 
-	 <link rel="stylesheet" href="./js/dojo/dijit/themes/claro/claro.css">
+	<!-- 4 build in themes.  Be sure to set <body class="..."></body> -->
+	<!-- <link rel="stylesheet" href="./js/dojo/dijit/themes/claro/claro.css"> -->
 	<!-- <link rel="stylesheet" href="./js/dojo/dijit/themes/tundra/tundra.css"> -->
+	<!--  <link rel="stylesheet" href="./js/dojo/dijit/themes/nihilo/nihilo.css">  -->
+	<link rel="stylesheet" href="./js/dojo/dijit/themes/soria/soria.css"> 
+	
 	
 	<script>dojoConfig = {parseOnLoad: true}</script>
 	<script src='./js/dojo/dojo/dojo.js'></script>
@@ -27,7 +31,7 @@
 	
 </head>
 
-<body class="claro">
+<body class="soria">
 	
 	<div>Enter some text</div>
 	<div data-dojo-type="dijit/form/TextBox" id="txtbox1" value="any text"></div>

@@ -1,3 +1,24 @@
-<div>
-my template
+<div style="border:2px solid blue">
+
+	<!--  ${title} is the place holder for the title property in DemoWidget.js -->
+	<h2>${title}</h2>
+	<table>
+		<tr>
+			<td>First Name:</td>
+			
+			<!--  data-dojo-attach-point creates a property in DemoWidget instance
+				  of the specified name.  For this case, the DemoWidget.firstnameAnchor
+				  property is created and we can attach widget such as textbox to it.				  
+			-->
+			<td  data-dojo-attach-point="firstnameAnchor">&nbsp</td>
+		</tr>
+		<tr>
+			<td>Last Name:</td>
+			<td  data-dojo-attach-point="lastnameAnchor">&nbsp</td>
+		</tr>
+		<tr>
+			<td>&nbsp</td>
+			<td data-dojo-attach-point="buttonAnchor">&nbsp</td>
+		</tr>
+	</table>
 </div>

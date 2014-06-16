@@ -6,38 +6,50 @@
 
 	 <link rel="stylesheet" href="./js/dojo/dijit/themes/claro/claro.css">
 	<!-- <link rel="stylesheet" href="./js/dojo/dijit/themes/tundra/tundra.css"> -->
-	
-	<!-- 
-			parseOnLoad must be false
-	-->
-	<script>dojoConfig = {parseOnLoad: false}</script>
+
 	<script src='./js/dojo/dojo/dojo.js'></script>
+		
+	<script>
+		dojoConfig = {parseOnLoad: false}
+	
+	    // path is relative to directory containing dojo.js
+		dojo.registerModulePath('js', '../../../js');
+	    dojo.registerModulePath('demo', '../../../js/demo');
+	</script>
+
 	
 	<script>
 	
 
 		require(["dojo/ready",
 		         "dijit/form/TextBox",
-		         "dijit/form/Button",
-		         "dojo/domReady!"], 
-		  function(ready, _TextBox, _Button ) {
-		      console.debug("dojo is ready");                       
-			
-		      var btn = new _Button({
-			        label: "Add Widget",
+		         "demo/DemoButton",
+		         "demo/Cat",
+		         "dojo/domReady!"],
+		         
+		  function(ready, _TextBox, _Button, _Cat ) 
+		  {
+ 			 console.debug("dojo is ready");                       
+
+		      var btn = new demo.DemoButton({
+			        label: "Change me",
 			        onClick: function() {
-			        	onClicked();
+			        	btn.setLabel("My New Name");
 			        }
 			    }, "btn1");
 		      
 
+		      var btn2 = new demo.DemoButton({
+			        label: "Create Animal",
+			        onClick: function() {
+			        	console.debug("----- Creating new cat");
+						var c = new demo.Cat({ name:"buzz"});
+						c.makeSound("meow");
+			        }
+			    }, "btn2");
 		});
 
-	
-		function onClicked()
-		{
-			
-		}
+
 	</script>
 	
 </head>
@@ -45,12 +57,8 @@
 <body class="claro">
 
 	<div id="btn1"></div>
+	<div id="btn2"></div>
 	
-	<br/>
-	<div id="anchor1"></div>
-	<div id="anchor2"></div>
-	<div id="anchor3"></div>
-					
-
+	
 </body>
 </html>

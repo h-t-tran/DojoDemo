@@ -30,8 +30,9 @@
 		      var btn = new dijit.form.Button({
 			        label: "Add Widget",
 			        onClick: function() {
+			        	
 			        	 var w = new demo.DemoWidget({
-			        		 myValue: "hello"
+			        		 title: "This is DemoWidget " + g_anchorIndx
 			        	 	}, "anchor" + g_anchorIndx);	
 			        	 
 			        	 widgetArray = widgetArray.concat(w);
@@ -44,8 +45,11 @@
 		      var btn2 = new dijit.form.Button({
 			        label: "Change Content",
 			        onClick: function() {
+			        	 var i = 0;
+			        	 
 			        	 dojo.forEach(widgetArray, function(w) {
-			        		 console.debug(w);
+			        		 w.changeName("John" + i, "Smith" + i);
+			        		 i++;
 			        	 });
 			        }
 			    }, "btn2");
@@ -59,7 +63,9 @@
 	<span id="btn1"></span><span id="btn2"></span>
 	<br/>
 	<div id="anchor1"></div>
+	<br/>
 	<div id="anchor2"></div>
+	<br/>
 	<div id="anchor3"></div>
 					
 

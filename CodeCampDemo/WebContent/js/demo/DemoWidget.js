@@ -4,12 +4,16 @@ require(
    "dojo/dom"
    , "dijit/_Widget"       
    , "dijit/_Templated" 
+   , "dijit/form/TextBox"
+   , "dijit/form/Button"
   ], 
 function
 ( 
   dom, 
   _Widget, 
-  _Templated
+  _Templated,
+  _Textbox,
+  _Button
 )
 {
 
@@ -20,23 +24,37 @@ function
 		// the path to the HTML template associated with the demo.DemoWidget class.
 	    templateString: dojo.cache("demo", "templates/DemoWidget.html"),
 	   
-	    myValue : "",
+	    title : "",
+	    
+	    _firstname: "",
+	    _lastname: "",
 	    
 	    constructor: function(args)
 	    {
 	    	this.inherited(arguments);
-	    	console.debug("demo.DemoWidget ctor");
 	    },	    
 	    
 	    postCreate: function() 
 	    {
-	    	this.inherited(arguments);	  	    
-	  	    console.debug("this.myValue ", this.myValue)
+	    	this.inherited(arguments);	 
+	    	
+		    this._firstname = new dijit.form.TextBox({	
+		    	  	value: "John"
+			    }, this.firstnameAnchor);
+		      
+		    this._lastname = new dijit.form.TextBox({	
+		    	  	value: "Doe"
+			    }, this.lastnameAnchor);
+		    
+		    var btn = new dijit.form.Button({	
+		    	  	label: "Submit"
+			    }, this.buttonAnchor);
 	    }, 
 	    
-	    changeText: function(newValue)
+	    changeName: function(newfirstName, newLastName)
 	    {
-	    	
+	    	this._firstname.setValue(newfirstName);
+	    	this._lastname.setValue(newLastName);
 	    }
 	});
 });
